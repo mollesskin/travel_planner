@@ -1,41 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'firebase_options.dart';
+import 'app/app.dart';
+import 'core/theme/theme_provider.dart';
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  final sharedPrefs = await SharedPreferences.getInstance();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Travel Planner',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Мои поездки')),
-      body: const Center(
-        child: Text(
-          'Travel Planner\n\nЗдесь будет список поездок',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPrefsProvider.overrideWithValue(sharedPrefs),
+      ],
+      child: const TravelPlannerApp(),
+    ),
+  );
 }
