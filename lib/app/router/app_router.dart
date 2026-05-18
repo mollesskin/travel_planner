@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/trips/presentation/home_screen.dart';
 import '../../features/trips/presentation/trip_detail_screen.dart';
@@ -13,8 +14,10 @@ final routerProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) {
       final isLoggedIn = FirebaseAuth.instance.currentUser != null;
       final isLoginPage = state.matchedLocation == '/login';
+
       if (!isLoggedIn && !isLoginPage) return '/login';
       if (isLoggedIn && isLoginPage) return '/home';
+
       return null;
     },
     routes: [
@@ -27,6 +30,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (ctx, state) => const HomeScreen(),
         routes: [
           GoRoute(
+            path: 'trip/:tripId',
             builder: (ctx, state) {
               final tripId = state.pathParameters['tripId']!;
               return TripDetailScreen(tripId: tripId);
