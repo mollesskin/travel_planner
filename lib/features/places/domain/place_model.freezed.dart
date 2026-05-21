@@ -20,14 +20,9 @@ PlaceModel _$PlaceModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlaceModel {
-  String get placeId => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
-  double get lng => throw _privateConstructorUsedError;
-  String get photoUrl => throw _privateConstructorUsedError;
-  double get rating => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
+  String get region => throw _privateConstructorUsedError;
 
   /// Serializes this PlaceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,15 +40,7 @@ abstract class $PlaceModelCopyWith<$Res> {
           PlaceModel value, $Res Function(PlaceModel) then) =
       _$PlaceModelCopyWithImpl<$Res, PlaceModel>;
   @useResult
-  $Res call(
-      {String placeId,
-      String name,
-      String address,
-      double lat,
-      double lng,
-      String photoUrl,
-      double rating,
-      String type});
+  $Res call({String city, String country, String region});
 }
 
 /// @nodoc
@@ -71,47 +58,22 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? placeId = null,
-    Object? name = null,
-    Object? address = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? photoUrl = null,
-    Object? rating = null,
-    Object? type = null,
+    Object? city = null,
+    Object? country = null,
+    Object? region = null,
   }) {
     return _then(_value.copyWith(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      lat: null == lat
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
-          ? _value.lng
-          : lng // ignore: cast_nullable_to_non_nullable
-              as double,
-      photoUrl: null == photoUrl
-          ? _value.photoUrl
-          : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      region: null == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -125,15 +87,7 @@ abstract class _$$PlaceModelImplCopyWith<$Res>
       __$$PlaceModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String placeId,
-      String name,
-      String address,
-      double lat,
-      double lng,
-      String photoUrl,
-      double rating,
-      String type});
+  $Res call({String city, String country, String region});
 }
 
 /// @nodoc
@@ -149,47 +103,22 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? placeId = null,
-    Object? name = null,
-    Object? address = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? photoUrl = null,
-    Object? rating = null,
-    Object? type = null,
+    Object? city = null,
+    Object? country = null,
+    Object? region = null,
   }) {
     return _then(_$PlaceModelImpl(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      lat: null == lat
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
-          ? _value.lng
-          : lng // ignore: cast_nullable_to_non_nullable
-              as double,
-      photoUrl: null == photoUrl
-          ? _value.photoUrl
-          : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      region: null == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -199,41 +128,22 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlaceModelImpl implements _PlaceModel {
   const _$PlaceModelImpl(
-      {required this.placeId,
-      required this.name,
-      required this.address,
-      required this.lat,
-      required this.lng,
-      this.photoUrl = '',
-      this.rating = 0.0,
-      this.type = ''});
+      {required this.city, required this.country, this.region = ''});
 
   factory _$PlaceModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceModelImplFromJson(json);
 
   @override
-  final String placeId;
+  final String city;
   @override
-  final String name;
-  @override
-  final String address;
-  @override
-  final double lat;
-  @override
-  final double lng;
+  final String country;
   @override
   @JsonKey()
-  final String photoUrl;
-  @override
-  @JsonKey()
-  final double rating;
-  @override
-  @JsonKey()
-  final String type;
+  final String region;
 
   @override
   String toString() {
-    return 'PlaceModel(placeId: $placeId, name: $name, address: $address, lat: $lat, lng: $lng, photoUrl: $photoUrl, rating: $rating, type: $type)';
+    return 'PlaceModel(city: $city, country: $country, region: $region)';
   }
 
   @override
@@ -241,21 +151,14 @@ class _$PlaceModelImpl implements _PlaceModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlaceModelImpl &&
-            (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng) &&
-            (identical(other.photoUrl, photoUrl) ||
-                other.photoUrl == photoUrl) &&
-            (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.region, region) || other.region == region));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, placeId, name, address, lat, lng, photoUrl, rating, type);
+  int get hashCode => Object.hash(runtimeType, city, country, region);
 
   /// Create a copy of PlaceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -275,34 +178,19 @@ class _$PlaceModelImpl implements _PlaceModel {
 
 abstract class _PlaceModel implements PlaceModel {
   const factory _PlaceModel(
-      {required final String placeId,
-      required final String name,
-      required final String address,
-      required final double lat,
-      required final double lng,
-      final String photoUrl,
-      final double rating,
-      final String type}) = _$PlaceModelImpl;
+      {required final String city,
+      required final String country,
+      final String region}) = _$PlaceModelImpl;
 
   factory _PlaceModel.fromJson(Map<String, dynamic> json) =
       _$PlaceModelImpl.fromJson;
 
   @override
-  String get placeId;
+  String get city;
   @override
-  String get name;
+  String get country;
   @override
-  String get address;
-  @override
-  double get lat;
-  @override
-  double get lng;
-  @override
-  String get photoUrl;
-  @override
-  double get rating;
-  @override
-  String get type;
+  String get region;
 
   /// Create a copy of PlaceModel
   /// with the given fields replaced by the non-null parameter values.
